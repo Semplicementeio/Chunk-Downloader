@@ -1,0 +1,10 @@
+# Executables
+downloader
+*.exe
+*.exe.test
+*.out
+
+# Downloads directory & manifest temp files
+downloads/
+*.chk.json
+*.tmp

@@ -1,0 +1,68 @@
+name: CI / Build & Test
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    name: Test & Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+          cache: true
+
+      - name: Run golangci-lint
+        uses: golangci/lint-action@v4
+        with:
+          version: v1.56.2
+        continue-on-error: true
+
+      - name: Run unit & race tests
+        run: go test -v -race -coverprofile=coverage.txt -covermode=atomic ./...
+
+      - name: Build binary
+        run: go build -v ./cmd/downloader
+
+      - name: Run Benchmark Suite
+        run: ./downloader bench --size 20
+
+  release-binaries:
+    name: Build Cross-Platform Binaries
+    runs-on: ubuntu-latest
+    needs: test
+    strategy:
+      matrix:
+        goos: [linux, darwin, windows]
+        goarch: [amd64, arm64]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.22'
+
+      - name: Build binary
+        env:
+          GOOS: ${{ matrix.goos }}
+          GOARCH: ${{ matrix.goarch }}
+        run: |
+          EXT=""
+          if [ "${{ matrix.goos }}" = "windows" ]; then EXT=".exe"; fi
+          go build -ldflags="-w -s" -o "bin/downloader-${{ matrix.goos }}-${{ matrix.goarch }}${EXT}" ./cmd/downloader
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: downloader-${{ matrix.goos }}-${{ matrix.goarch }}
+          path: bin/

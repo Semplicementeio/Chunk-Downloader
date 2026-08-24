@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  mock-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["mock-server", "--port", "8080", "--size", "100"]
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "/app/downloader", "help"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+
+  downloader-client:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - mock-server
+    command: ["bench", "--size", "50"]
