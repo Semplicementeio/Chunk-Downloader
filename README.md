@@ -177,7 +177,7 @@ go test -v -race -cover ./...
 - **Why Adaptive Concurrency?**: Increasing concurrency does not always increase throughput. The controller monitors rolling transfer performance to avoid unnecessary concurrency when the network or server becomes the bottleneck.
 - **Why Context Cancellation?**: Download workers share a cancellation context so active HTTP requests, retry loops, and background goroutines terminate cleanly when the transfer is interrupted or fails.
 
-## ⚠️ Limitations
+## Limitations
 
 - **HTTP Range Support**: Performance acceleration depends heavily on server support for HTTP Range requests (`206 Partial Content`).
 - **Server Throttling**: Multiple concurrent connections may be restricted by server-side rate limiting or CDN policy.
