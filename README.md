@@ -82,7 +82,7 @@ The project was built as an exploration of concurrent network I/O, resumable tra
 | **No Range Support (`HTTP 200`)** | Falls back to a single-stream download when the server does not support byte-range requests. |
 | **Final Checksum Mismatch** | Download is rejected as invalid, temporary file is cleaned up, error is reported. |
 
-## 📊 Performance & Benchmarks
+## Performance & Benchmarks
 
 > ℹ️ **Benchmark environment**: Go 1.22+, local isolated HTTP test server, 50 MB payload, loopback networking. Results are from single benchmark runs intended for comparative concurrency scaling analysis rather than absolute performance claims. These results reflect the local test environment and should not be interpreted as expected WAN throughput.
 
