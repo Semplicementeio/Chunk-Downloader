@@ -63,7 +63,7 @@ The project was built as an exploration of concurrent network I/O, resumable tra
                    to Target      Reject File
 ```
 
-### 📂 Key Implementation Areas
+### Key Implementation Areas
 
 - [`cmd/downloader/main.go`](cmd/downloader/main.go): CLI entry point, flag parsing, and signal handling (`SIGINT`/`SIGTERM`).
 - [`pkg/downloader/engine.go`](pkg/downloader/engine.go): Core download orchestrator, range probing, `WriteAt` dispatching, and SHA-256 verification.
