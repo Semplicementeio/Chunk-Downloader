@@ -72,7 +72,7 @@ The project was built as an exploration of concurrent network I/O, resumable tra
 - [`pkg/adaptive/controller.go`](pkg/adaptive/controller.go): Sliding window throughput monitor & adaptive worker controller.
 - [`pkg/metrics/exporter.go`](pkg/metrics/exporter.go): Prometheus telemetry exporter (`:9090/metrics`).
 
-## 🛡 Failure & Recovery Matrix
+## Failure & Recovery Matrix
 
 | Scenario | System Behavior |
 |---|---|
