@@ -1,4 +1,4 @@
-# ⚡ Chunk Downloader
+# Chunk Downloader
 
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
 [![CI Status](https://github.com/semplicementeio/Chunk-Downloader/actions/workflows/ci.yml/badge.svg)](https://github.com/semplicementeio/Chunk-Downloader/actions)
