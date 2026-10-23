@@ -84,7 +84,7 @@ The project was built as an exploration of concurrent network I/O, resumable tra
 
 ## Performance & Benchmarks
 
-> ℹ️ **Benchmark environment**: Go 1.22+, local isolated HTTP test server, 50 MB payload, loopback networking. Results are from single benchmark runs intended for comparative concurrency scaling analysis rather than absolute performance claims. These results reflect the local test environment and should not be interpreted as expected WAN throughput.
+> **Benchmark environment**: Go 1.22+, local isolated HTTP test server, 50 MB payload, loopback networking. Results are from single benchmark runs intended for comparative concurrency scaling analysis rather than absolute performance claims. These results reflect the local test environment and should not be interpreted as expected WAN throughput.
 
 | Workers | Chunk Size | Duration | Throughput | Total Alloc | Heap Sys |
 |---|---|---|---|---|---|
