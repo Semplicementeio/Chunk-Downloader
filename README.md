@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/chunk-downloader.webp" alt="Chunk Downloader banner" width="100%">
+</p>
+
 # Chunk Downloader
 
 [![Go Version](https://img.shields.io/badge/Go-1.22%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
