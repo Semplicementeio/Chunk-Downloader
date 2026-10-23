@@ -185,6 +185,6 @@ go test -v -race -cover ./...
 - **Filesystem Sparse Files**: Pre-allocation behavior depends on the underlying OS filesystem.
 - **Current Scope**: Currently designed for single-file HTTP/HTTPS transfers.
 
-## 📜 License
+## License
 
 Distributed under the [Apache License 2.0](LICENSE).
