@@ -5,7 +5,8 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/semplicementeio/chunk-downloader)](https://goreportcard.com/report/github.com/semplicementeio/chunk-downloader)
 [![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-A high-performance, concurrent, and resumable HTTP downloader written in Go. It uses HTTP range requests, adaptive worker concurrency, checkpoint-based recovery, SHA-256 integrity verification, and optional Prometheus telemetry.
+A high-performance, concurrent, and resumable HTTP downloader written in Go. 
+It uses HTTP range requests, adaptive worker concurrency, checkpoint-based recovery, SHA-256 integrity verification, and optional Prometheus telemetry.
 
 The project was built as an exploration of concurrent network I/O, resumable transfers, adaptive scheduling, and fault-tolerant file handling in Go.
 
