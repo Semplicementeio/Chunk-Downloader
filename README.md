@@ -10,7 +10,7 @@ It uses HTTP range requests, adaptive worker concurrency, checkpoint-based recov
 
 The project was built as an exploration of concurrent network I/O, resumable transfers, adaptive scheduling, and fault-tolerant file handling in Go.
 
-## 🎯 Key Features
+## Key Features
 
 - **Concurrent Range Downloads**: Splits files into HTTP Range chunks downloaded across configurable goroutine worker pools.
 - **Direct Chunk Writes**: Writes each downloaded range directly to its final byte offset using `os.File.WriteAt`, avoiding a separate file-merging phase.
