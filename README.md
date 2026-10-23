@@ -109,7 +109,7 @@ Parallel worker scaling exhibits diminishing returns beyond an optimal threshold
 
 The adaptive controller samples transfer throughput every 500ms and uses a rolling window to adjust the worker pool when additional concurrency improves or degrades performance. The controller increases concurrency when recent throughput improves and backs off when additional workers stop producing meaningful gains or negatively affect transfer performance.
 
-## 📋 Requirements
+## Requirements
 
 - **Go**: 1.22+
 - **Operating System**: Linux, macOS, or Windows
