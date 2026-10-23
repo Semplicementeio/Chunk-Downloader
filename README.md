@@ -18,7 +18,7 @@ The project was built as an exploration of concurrent network I/O, resumable tra
 - **Adaptive Concurrency**: Dynamically tunes worker pool size based on real-time throughput telemetry to prevent network link congestion or server-side connection throttling.
 - **Integrity Verification**: Verifies SHA-256 file hashes before final atomic renaming.
 
-## 🏗 System Architecture
+## System Architecture
 
 ```
                     ┌────────────────────────┐
