@@ -96,14 +96,13 @@ func runDownload(args []string) {
 	metricsPort := fs.Int("m", 0, "Prometheus metrics port")
 	fs.IntVar(metricsPort, "metrics-port", 0, "Prometheus metrics port")
 
-	_ = fs.Parse(args)
-
-	if fs.NArg() < 1 {
+	positional := parseInterspersed(fs, args)
+	if len(positional) < 1 {
 		fmt.Println("Error: URL argument required")
 		os.Exit(1)
 	}
 
-	urlStr := fs.Arg(0)
+	urlStr := positional[0]
 
 	logger := slog.New(slog.NewTextHandler(os.Stdout, &slog.HandlerOptions{
 		Level: slog.LevelInfo,
@@ -251,6 +250,21 @@ func runMockServer(args []string) {
 	fmt.Println("Press Ctrl+C to stop.")
 
 	select {}
+}
+
+// parseInterspersed parses flags placed before, between, or after positional
+// arguments (flag.FlagSet.Parse alone stops at the first positional argument)
+// and returns the positional arguments in order.
+func parseInterspersed(fs *flag.FlagSet, args []string) []string {
+	var positional []string
+	for {
+		_ = fs.Parse(args)
+		if fs.NArg() == 0 {
+			return positional
+		}
+		positional = append(positional, fs.Arg(0))
+		args = fs.Args()[1:]
+	}
 }
 
 func isURL(str string) bool {
