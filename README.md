@@ -115,7 +115,7 @@ The adaptive controller samples transfer throughput every 500ms and uses a rolli
 - **Operating System**: Linux, macOS, or Windows
 - **Docker** *(Optional)*: Required only for isolated integration tests and benchmark containers.
 
-## 🚀 Quick Start & CLI Usage
+## Quick Start & CLI Usage
 
 All CLI examples below use the real **Ubuntu Base 24.04.4 archive** (~30 MB, SHA-256 verified) as a single consistent sample file:
 
