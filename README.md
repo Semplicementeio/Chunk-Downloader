@@ -169,7 +169,7 @@ Run unit tests, race detector, and integration suites:
 go test -v -race -cover ./...
 ```
 
-## 📐 Design Decisions
+## Design Decisions
 
 - **Why HTTP Range Requests?**: HTTP Range Requests allow independent byte ranges to be downloaded concurrently, while completed ranges can be skipped when resuming an interrupted transfer.
 - **Why `os.File.WriteAt`?**: Chunks can complete out of order. Writing directly to each chunk's final byte offset eliminates locks around a shared file write cursor and avoids a separate file-merging step.
