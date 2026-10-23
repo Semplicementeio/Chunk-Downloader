@@ -162,7 +162,7 @@ Docker Compose is provided for reproducible local integration testing and benchm
 docker-compose up --build
 ```
 
-## 🧪 Testing
+## Testing
 
 Run unit tests, race detector, and integration suites:
 ```bash
