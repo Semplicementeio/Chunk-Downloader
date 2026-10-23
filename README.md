@@ -105,7 +105,7 @@ Parallel worker scaling exhibits diminishing returns beyond an optimal threshold
 3. **Disk I/O Contention**: Concurrent writes to non-contiguous file offsets may introduce additional storage contention.
 4. **Go Scheduler Overhead**: Higher worker counts introduce context-switching costs between goroutines and OS threads.
 
-## 🧠 Adaptive Concurrency
+## Adaptive Concurrency
 
 The adaptive controller samples transfer throughput every 500ms and uses a rolling window to adjust the worker pool when additional concurrency improves or degrades performance. The controller increases concurrency when recent throughput improves and backs off when additional workers stop producing meaningful gains or negatively affect transfer performance.
 
